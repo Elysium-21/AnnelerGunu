@@ -117,8 +117,10 @@
       -webkit-text-fill-color: transparent;
       white-space: nowrap;
       backface-visibility: hidden;
-      text-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
 
+      /* Parlaklık engellendi */
+      text-shadow: none;
+      
       will-change: transform;
       text-rendering: optimizeLegibility;
       -webkit-font-smoothing: antialiased;
@@ -155,7 +157,7 @@
 
       .orbit-text span {
         font-size: 30px; /* Küçültüldü */
-        text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+        text-shadow: none; /* Parlaklık engellendi */
       }
 
       body {
