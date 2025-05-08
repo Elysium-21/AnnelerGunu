@@ -6,7 +6,7 @@
   <title>Anneler Günü</title>
   <style>
     html {
-      font-size: 75%; /* %25 küçültme */
+      font-size: 75%;
     }
 
     body {
@@ -16,7 +16,7 @@
       height: 100vh;
       font-family: Arial, sans-serif;
       perspective: 1000px;
-      transform: scale(1.2); /* %25 küçültme */
+      transform: scale(1.2);
       transform-origin: top left;
     }
 
@@ -30,8 +30,8 @@
 
     /* Kalp */
     .heart {
-      width: 150px; /* Küçültüldü */
-      height: 150px; /* Küçültüldü */
+      width: 150px;
+      height: 150px;
       background: linear-gradient(135deg, #000, #333);
       position: relative;
       transform: rotate(-45deg);
@@ -43,8 +43,8 @@
     .heart::before,
     .heart::after {
       content: '';
-      width: 150px; /* Küçültüldü */
-      height: 150px; /* Küçültüldü */
+      width: 150px;
+      height: 150px;
       position: absolute;
       background: inherit;
       border-radius: 50%;
@@ -68,8 +68,8 @@
       position: absolute;
       top: 50%;
       left: 50%;
-      width: 100px; /* Küçültüldü */
-      height: 100px; /* Küçültüldü */
+      width: 100px;
+      height: 100px;
       transform: translate(-50%, -50%);
       z-index: 3;
       border-radius: 50%;
@@ -85,11 +85,11 @@
       animation: growPhoto 6s ease-out forwards;
     }
 
-    /* Dönen yazı */
+    /* Dönen yuvarlak yazı */
     .orbit-container {
       position: absolute;
-      width: 300px; /* Küçültüldü */
-      height: 300px; /* Küçültüldü */
+      width: 300px;
+      height: 300px;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
@@ -101,8 +101,12 @@
       position: absolute;
       width: 100%;
       height: 100%;
-      animation: spin 10s linear infinite;
+      animation: rotateCircle 10s linear infinite;
       transform-style: preserve-3d;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
     }
 
     .orbit-text span {
@@ -110,23 +114,21 @@
       top: 0;
       left: 50%;
       transform: translateX(-50%) translateZ(150px);
-      font-size: 22.5px; /* %25 küçültülmüş yazı boyutu */
+      font-size: 22px; /* %25 küçültülmüş font boyutu */
       font-weight: bold;
       background: linear-gradient(90deg, #ffffff, #e0e0e0);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       white-space: nowrap;
       backface-visibility: hidden;
-
-      /* Parlaklık engellendi */
-      text-shadow: none;
-      
+      text-shadow: 0 0 5px rgba(255, 255, 255, 0.3); /* Daha az parlaklık */
       will-change: transform;
       text-rendering: optimizeLegibility;
       -webkit-font-smoothing: antialiased;
     }
 
-    @keyframes spin {
+    /* Yazının yuvarlak yolda dönmesini sağlamak için animasyon */
+    @keyframes rotateCircle {
       0% { transform: rotateY(0deg); }
       100% { transform: rotateY(360deg); }
     }
@@ -134,8 +136,8 @@
     /* Çiçekler */
     .svg-flower {
       position: absolute;
-      width: 60px; /* Küçültüldü */
-      height: 60px; /* Küçültüldü */
+      width: 60px;
+      height: 60px;
       z-index: 1;
       opacity: 0.9;
       animation: float 4s ease-in-out infinite alternate;
@@ -152,16 +154,16 @@
     /* Mobil uyumluluk */
     @media (max-width: 768px) {
       html {
-        font-size: 100%; /* %25 büyütme */
+        font-size: 100%;
       }
 
       .orbit-text span {
-        font-size: 30px; /* Küçültüldü */
-        text-shadow: none; /* Parlaklık engellendi */
+        font-size: 27px; /* Küçültülmüş boyut */
+        text-shadow: 0 0 5px rgba(255, 255, 255, 0.3); /* Daha az parlaklık */
       }
 
       body {
-        transform: scale(1.1); /* %25 küçültme */
+        transform: scale(1.1);
         transform-origin: top left;
       }
     }
@@ -199,7 +201,7 @@
       </svg>
     </div>
 
-    <!-- Renkli yazı -->
+    <!-- Yuvarlak hareket eden yazı -->
     <div class="orbit-container">
       <div class="orbit-text">
         <span>Anneler Gününüz Kutlu Olsun Semra Hanım</span>
