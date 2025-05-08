@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Anneler Günü</title>
+  <style>
+    body {
+      margin: 0;
+      background: radial-gradient(circle at center, #111, #000);
+      overflow: hidden;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+      perspective: 1000px;
+    }
+
+    .scene {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform-style: preserve-3d;
+      transform: translate(-50%, -50%);
+    }
+
+    /* Kalp - Siyah renk */
+    .heart {
+      width: 200px;
+      height: 200px;
+      background: linear-gradient(135deg, #000, #333); /* Siyah tonları */
+      position: relative;
+      transform: rotate(-45deg);
+      animation: pulse 2s infinite;
+      box-shadow: 0 0 20px #333; /* Siyah gölge */
+      z-index: 2;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      width: 200px;
+      height: 200px;
+      position: absolute;
+      background: inherit;
+      border-radius: 50%;
+    }
+
+    .heart::before { top: -100px; left: 0; }
+    .heart::after { top: 0; left: 100px; }
+
+    @keyframes pulse {
+      0%, 100% { transform: rotate(-45deg) scale(1.1); }
+      50% { transform: rotate(-45deg) scale(1.25); }
+    }
+
+    /* Fotoğraf küçükten büyüsün */
+    @keyframes growPhoto {
+      0% { transform: scale(0.05); opacity: 0; } /* Başlangıç boyutunu çok küçük yaptık */
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .heart-photo-wrapper {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 130px;
+      height: 130px;
+      transform: translate(-50%, -50%);
+      z-index: 3;
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: 0 0 12px white;
+    }
+
+    .heart-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      animation: growPhoto 6s ease-out forwards; /* Süreyi artırdık */
+    }
+
+    /* Dönen yazı */
+    .orbit-container {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transform-style: preserve-3d;
+      z-index: 4;
+    }
+
+    .orbit-text {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      animation: spin 10s linear infinite;
+      transform-style: preserve-3d;
+    }
+
+    .orbit-text span {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%) translateZ(150px);
+      font-size: 20px;
+      font-weight: bold;
+      background: linear-gradient(90deg, #f7f5f5);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      white-space: nowrap;
+      backface-visibility: hidden;
+      text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+    }
+
+    @keyframes spin {
+      0% { transform: rotateY(0deg); }
+      100% { transform: rotateY(360deg); }
+    }
+
+    /* Çiçekler */
+    .svg-flower {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      z-index: 1;
+      opacity: 0.9;
+      animation: float 4s ease-in-out infinite alternate;
+    }
+
+    .svg-flower.left { left: -100px; bottom: -30px; }
+    .svg-flower.right { right: -100px; bottom: -30px; }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(10px); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="scene">
+
+    <!-- Çiçekler -->
+    <div class="svg-flower left">
+      <svg viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="10" fill="#ff69b4" />
+        <circle cx="50" cy="25" r="15" fill="#ffb6c1" />
+        <circle cx="75" cy="50" r="15" fill="#ffb6c1" />
+        <circle cx="50" cy="75" r="15" fill="#ffb6c1" />
+        <circle cx="25" cy="50" r="15" fill="#ffb6c1" />
+      </svg>
+    </div>
+
+    <!-- Kalp ve fotoğraf -->
+    <div class="heart"></div>
+    <div class="heart-photo-wrapper">
+      <img src="semra.jpg" class="heart-photo" alt="Semra Hanım">
+    </div>
+
+    <!-- Çiçek -->
+    <div class="svg-flower right">
+      <svg viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="10" fill="#ff69b4" />
+        <circle cx="50" cy="25" r="15" fill="#ffb6c1" />
+        <circle cx="75" cy="50" r="15" fill="#ffb6c1" />
+        <circle cx="50" cy="75" r="15" fill="#ffb6c1" />
+        <circle cx="25" cy="50" r="15" fill="#ffb6c1" />
+      </svg>
+    </div>
+
+    <!-- Renkli yazı, kalbin önünden dönecek -->
+    <div class="orbit-container">
+      <div class="orbit-text">
+        <span>Anneler Gününüz Kutlu Olsun Semra Hanım</span>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
