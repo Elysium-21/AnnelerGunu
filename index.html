@@ -6,7 +6,7 @@
   <title>Anneler Günü</title>
   <style>
     html {
-      font-size: 100%;
+      font-size: 75%; /* %25 küçültme */
     }
 
     body {
@@ -16,7 +16,7 @@
       height: 100vh;
       font-family: Arial, sans-serif;
       perspective: 1000px;
-      transform: scale(1.5); /* %150 büyütme */
+      transform: scale(1.2); /* %25 küçültme */
       transform-origin: top left;
     }
 
@@ -30,8 +30,8 @@
 
     /* Kalp */
     .heart {
-      width: 200px;
-      height: 200px;
+      width: 150px; /* Küçültüldü */
+      height: 150px; /* Küçültüldü */
       background: linear-gradient(135deg, #000, #333);
       position: relative;
       transform: rotate(-45deg);
@@ -43,15 +43,15 @@
     .heart::before,
     .heart::after {
       content: '';
-      width: 200px;
-      height: 200px;
+      width: 150px; /* Küçültüldü */
+      height: 150px; /* Küçültüldü */
       position: absolute;
       background: inherit;
       border-radius: 50%;
     }
 
-    .heart::before { top: -100px; left: 0; }
-    .heart::after { top: 0; left: 100px; }
+    .heart::before { top: -75px; left: 0; }
+    .heart::after { top: 0; left: 75px; }
 
     @keyframes pulse {
       0%, 100% { transform: rotate(-45deg) scale(1.1); }
@@ -68,8 +68,8 @@
       position: absolute;
       top: 50%;
       left: 50%;
-      width: 130px;
-      height: 130px;
+      width: 100px; /* Küçültüldü */
+      height: 100px; /* Küçültüldü */
       transform: translate(-50%, -50%);
       z-index: 3;
       border-radius: 50%;
@@ -88,8 +88,8 @@
     /* Dönen yazı */
     .orbit-container {
       position: absolute;
-      width: 400px;
-      height: 400px;
+      width: 300px; /* Küçültüldü */
+      height: 300px; /* Küçültüldü */
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
@@ -110,7 +110,7 @@
       top: 0;
       left: 50%;
       transform: translateX(-50%) translateZ(150px);
-      font-size: 40px;
+      font-size: 30px; /* Küçültüldü */
       font-weight: bold;
       background: linear-gradient(90deg, #ffffff, #e0e0e0);
       -webkit-background-clip: text;
@@ -119,11 +119,9 @@
       backface-visibility: hidden;
       text-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
 
-      /* Bulanıklığı düzeltmek için */
       will-change: transform;
       text-rendering: optimizeLegibility;
       -webkit-font-smoothing: antialiased;
-      transform-style: preserve-3d;
     }
 
     @keyframes spin {
@@ -134,15 +132,15 @@
     /* Çiçekler */
     .svg-flower {
       position: absolute;
-      width: 80px;
-      height: 80px;
+      width: 60px; /* Küçültüldü */
+      height: 60px; /* Küçültüldü */
       z-index: 1;
       opacity: 0.9;
       animation: float 4s ease-in-out infinite alternate;
     }
 
-    .svg-flower.left { left: -100px; bottom: -30px; }
-    .svg-flower.right { right: -100px; bottom: -30px; }
+    .svg-flower.left { left: -75px; bottom: -20px; }
+    .svg-flower.right { right: -75px; bottom: -20px; }
 
     @keyframes float {
       0% { transform: translateY(0); }
@@ -152,37 +150,16 @@
     /* Mobil uyumluluk */
     @media (max-width: 768px) {
       html {
-        font-size: 120%;
+        font-size: 100%; /* %25 büyütme */
       }
 
       .orbit-text span {
-         position: absolute;
-         top: 0;
-         left: 50%;
-         transform: translateX(-50%) translateZ(150px);
-         font-size: 48px;
-         font-weight: 900;
-         color: #ffffff;
-         white-space: nowrap;
-         backface-visibility: hidden;
-         text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
-
-           /* Görüntü netliği artırıcılar */
-          -webkit-font-smoothing: antialiased;
-         -moz-osx-font-smoothing: grayscale;
-         text-rendering: optimizeLegibility;
-         will-change: transform;
-     }
-
-         @media (max-width: 768px) {
-         .orbit-text span {
-         font-size: 60px;
-         text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.6);
-        }
-}
+        font-size: 36px; /* Küçültüldü */
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+      }
 
       body {
-        transform: scale(1.2);
+        transform: scale(1.1); /* %25 küçültme */
         transform-origin: top left;
       }
     }
